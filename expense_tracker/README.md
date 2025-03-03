@@ -40,3 +40,11 @@ Here are some examples of violating ```non-functional``` requirements:
 
 ## Understandibility
 For the understandability section, we will be inspecting your git log. You should include either the .git folder or else a gitLog.(pdf | txt).
+
+## Program Features
+- **Add Transactions**: Users can enter expense details (amount & category).
+- **View Transactions**: A table dynamically updates to display transaction history.
+- **Timestamping**: Each transaction is recorded with an automatic date & time.
+- **Summarization**: The total amount spent is calculated and displayed at the bottom.
+- **GUI-Based Interaction**: Built using Swing for an intuitive user experience.
+- **Extensibility**: The modular codebase allows for easy enhancements.
