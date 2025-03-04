@@ -15,7 +15,6 @@ public class ExpenseTrackerView extends JFrame {
   private JTextField categoryField;
   private DefaultTableModel model;
   private List<Transaction> transactions = new ArrayList<>();
-
   
 
   public JTable getTransactionsTable() {
@@ -65,6 +64,7 @@ public class ExpenseTrackerView extends JFrame {
     categoryField = new JTextField(10);
     transactionsTable = new JTable(model);
   
+
     // Layout components
     JPanel inputPanel = new JPanel();
     inputPanel.add(amountLabel);
@@ -76,6 +76,7 @@ public class ExpenseTrackerView extends JFrame {
     JPanel buttonPanel = new JPanel();
     buttonPanel.add(addTransactionBtn);
   
+
     // Add panels to frame
     add(inputPanel, BorderLayout.NORTH);
     add(new JScrollPane(transactionsTable), BorderLayout.CENTER); 
@@ -131,6 +132,13 @@ public class ExpenseTrackerView extends JFrame {
   }
   
 
-
   // Other view methods
+  /**
+   * Displays an error message using a pop-up dialog.
+   * @param message The error message to display.
+   */
+  public void showErrorPopup(String message) {
+    JOptionPane.showMessageDialog(this, message, "Input Error", JOptionPane.ERROR_MESSAGE);
+}
+
 }

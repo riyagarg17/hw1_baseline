@@ -29,18 +29,17 @@ public class ExpenseTrackerApp {
       String category = view.getCategoryField();
 
       // Validate input
-      boolean validAmount = InputValidation.validateAmount(amount);
-      boolean validCategory = InputValidation.validateCategory(category);
-
-      if (validAmount && validCategory) {
-          // Create transaction object
-          Transaction t = new Transaction(amount, category);
-
-          // Call controller to add transaction
-          view.addTransaction(t);
-      } else {
-          System.out.println("Transaction not added due to invalid input.");
+      if (!InputValidation.validateAmount(amount)) {
+          view.showErrorPopup("Error! Amount must be greater than 0 and less than 1000.");
+          return;
       }
+      if (!InputValidation.validateCategory(category)) {
+          view.showErrorPopup("Invalid category! Must be one of: food, travel, bills, entertainment, other.");
+          return;
+      }
+      // If validation passes, create and add transaction
+      Transaction t = new Transaction(amount, category);
+      view.addTransaction(t);
     });
 
   }
