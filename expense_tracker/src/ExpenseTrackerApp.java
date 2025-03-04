@@ -28,11 +28,19 @@ public class ExpenseTrackerApp {
       double amount = view.getAmountField(); 
       String category = view.getCategoryField();
 
-      // Create transaction object
-      Transaction t = new Transaction(amount, category);
+      // Validate input
+      boolean validAmount = InputValidation.validateAmount(amount);
+      boolean validCategory = InputValidation.validateCategory(category);
 
-      // Call controller to add transaction
-      view.addTransaction(t);
+      if (validAmount && validCategory) {
+          // Create transaction object
+          Transaction t = new Transaction(amount, category);
+
+          // Call controller to add transaction
+          view.addTransaction(t);
+      } else {
+          System.out.println("Transaction not added due to invalid input.");
+      }
     });
 
   }
